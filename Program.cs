@@ -11,44 +11,41 @@ namespace Basic
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the solutions of basic MATHEMATICAL PROBLEM STATEMENTS");
-            //TO GET THE PRIME FACTORS OF A NUMBER !
-            Console.Write("Enter a number to get prime factors: ");
-            int primeFactorNumber = Convert.ToInt32(Console.ReadLine());
+            //TO GET THE RANGE OF PRIME NUMBER !
+            Console.Write("Enter a number to find prime number range: ");
+            int primeNumberRange = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine(PrimeFactors(primeFactorNumber));
+            Console.WriteLine(primeNoRange(primeNumberRange));
         }
-        public static string PrimeFactors(int Number)
+        public static string primeNoRange(int Number)
         {
             int i = 2;
-            string rv = "";
-
+            string primeNumber = "";
+            int flag = 0;
             while (i < Number)
             {
-                if (Number % i == 0)
+                int n = 2;
+                while (n < i)
                 {
-                    int n = 2;
-                    int flag = 0;
-                    while (n < i)
+                    if (i % n == 0)
                     {
-                        if (i % n == 0)
-                        {
-                            flag = 1;
-                            break;
-                        }
-                        else
-                        {
-                            flag = 0;
-                        }
-                        n++;
+                        flag = 1;
+                        break;
                     }
-                    if (flag == 0)
+                    else
                     {
-                        rv = $"{Convert.ToString(i)} {rv}";
+                        flag = 0;
                     }
+                    n++;
+                }
+                if (flag == 0)
+                {
+                    primeNumber = primeNumber + " " + Convert.ToString(i);
                 }
                 i++;
             }
-            return rv;
+
+            return primeNumber;
         }
     }
 }
