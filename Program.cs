@@ -11,24 +11,33 @@ namespace Basic
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the solutions of basic MATHEMATICAL PROBLEM STATEMENTS");
-            //TO GET THE FACTORIAL OF NUMBER !
-            Console.Write("Enter a number to get factorial: ");
-            int factoialOfNumber = Convert.ToInt32(Console.ReadLine());
-            // Calling method to check Factorial of a number.
-            getfactorial(factoialOfNumber);
-        }
-        static void getfactorial(int Number)
-        {
-            //VARIABLES
-            int i = Number;
-            double factorialResult = 1;
+            //TO CHECK TWO NUMBERS ARE PALLINDROME OR NOT !
+            Console.WriteLine("Enter two numbers to check if they are palindrome or not");
+            Console.Write("Enter first number= ");
+            int palNumber1 = Convert.ToInt32(Console.ReadLine());
 
-            while (i > 0)
+            Console.Write("Enter second number= ");
+            int palNumber2 = Convert.ToInt32(Console.ReadLine());
+
+            checkNumberPallindrome(palNumber1, palNumber2);
+        }
+        static void checkNumberPallindrome(int num1, int num2)
+        {
+            string rem1 = "";
+            while (num1 > 0)
             {
-                factorialResult = (double)i * factorialResult;
-                i--;
+                int rem = num1 % 10;
+                rem1 = rem1 + Convert.ToString(rem);
+                num1 /= 10;
             }
-            Console.WriteLine($"The factorial of {Number} is {factorialResult}");
+            if (Convert.ToInt32(rem1) == num2)
+            {
+                Console.WriteLine("Two numbers are pallindrome");
+            }
+            else
+            {
+                Console.WriteLine("Two numbers are not pallindrome");
+            }
 
         }
     }
