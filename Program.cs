@@ -11,30 +11,25 @@ namespace Basic
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the solutions of basic MATHEMATICAL PROBLEM STATEMENTS");
-            //TO CHECK NUMBER IS ODD OR EVEN 
-            Console.Write("Enter a number to check odd or even: ");
-            int oddEvenToBeChecked = Convert.ToInt32(Console.ReadLine());
-            //Calling method to check odd even number.
-            checkEvenOdd(oddEvenToBeChecked);
+            //TO GET THE FACTORIAL OF NUMBER !
+            Console.Write("Enter a number to get factorial: ");
+            int factoialOfNumber = Convert.ToInt32(Console.ReadLine());
+            // Calling method to check Factorial of a number.
+            getfactorial(factoialOfNumber);
         }
-        static void checkEvenOdd(int Number)
+        static void getfactorial(int Number)
         {
-            if (Number > 0)
-            {
-                if (Number % 2 != 0)
-                {
-                    Console.WriteLine($"{Number} is odd");
-                }
-                else
-                {
-                    Console.WriteLine($"{Number} is even");
-                }
-            }
-            else
-            {
-                Console.WriteLine("Please enter positive number");
-            }
-        }
+            //VARIABLES
+            int i = Number;
+            double factorialResult = 1;
 
+            while (i > 0)
+            {
+                factorialResult = (double)i * factorialResult;
+                i--;
+            }
+            Console.WriteLine($"The factorial of {Number} is {factorialResult}");
+
+        }
     }
 }
