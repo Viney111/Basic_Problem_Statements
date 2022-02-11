@@ -11,38 +11,29 @@ namespace Basic
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the solutions of basic MATHEMATICAL PROBLEM STATEMENTS");
-            //TO CHECK NUMBER IS PRIME OR NOT !
-            Console.Write("Enter a number to check if it is prime or not: ");
-            int primeNoToBeChecked = Convert.ToInt32(Console.ReadLine());
-            //Callng checkPrime method
-            checkPrime(primeNoToBeChecked);
+            //TO CHECK NUMBER IS ODD OR EVEN 
+            Console.Write("Enter a number to check odd or even: ");
+            int oddEvenToBeChecked = Convert.ToInt32(Console.ReadLine());
+            //Calling method to check odd even number.
+            checkEvenOdd(oddEvenToBeChecked);
         }
-        static void checkPrime(int Number)
+        static void checkEvenOdd(int Number)
         {
             if (Number > 0)
             {
-                if (Number != 2)
+                if (Number % 2 != 0)
                 {
-                    int flag = 0;
-                    for (int i = 2; i < Number; i++)
-                    {
-                        if (Number % i == 0)
-                        {
-                            Console.WriteLine($"{Number} is not a prime number");
-                            flag = 1;
-                            break;
-                        }
-                    }
-                    if (flag == 0)
-                    {
-                        Console.WriteLine($"{Number} is a prime number");
-                    }
+                    Console.WriteLine($"{Number} is odd");
                 }
                 else
-                    Console.WriteLine($"{Number} is a prime number");
+                {
+                    Console.WriteLine($"{Number} is even");
+                }
             }
             else
-                Console.WriteLine($"{Number} is a neagtive integer");
+            {
+                Console.WriteLine("Please enter positive number");
+            }
         }
 
     }
