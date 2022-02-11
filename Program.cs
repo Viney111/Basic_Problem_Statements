@@ -11,34 +11,44 @@ namespace Basic
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the solutions of basic MATHEMATICAL PROBLEM STATEMENTS");
-            //TO CHECK TWO NUMBERS ARE PALLINDROME OR NOT !
-            Console.WriteLine("Enter two numbers to check if they are palindrome or not");
-            Console.Write("Enter first number= ");
-            int palNumber1 = Convert.ToInt32(Console.ReadLine());
+            //TO GET THE PRIME FACTORS OF A NUMBER !
+            Console.Write("Enter a number to get prime factors: ");
+            int primeFactorNumber = Convert.ToInt32(Console.ReadLine());
 
-            Console.Write("Enter second number= ");
-            int palNumber2 = Convert.ToInt32(Console.ReadLine());
-
-            checkNumberPallindrome(palNumber1, palNumber2);
+            Console.WriteLine(PrimeFactors(primeFactorNumber));
         }
-        static void checkNumberPallindrome(int num1, int num2)
+        public static string PrimeFactors(int Number)
         {
-            string rem1 = "";
-            while (num1 > 0)
-            {
-                int rem = num1 % 10;
-                rem1 = rem1 + Convert.ToString(rem);
-                num1 /= 10;
-            }
-            if (Convert.ToInt32(rem1) == num2)
-            {
-                Console.WriteLine("Two numbers are pallindrome");
-            }
-            else
-            {
-                Console.WriteLine("Two numbers are not pallindrome");
-            }
+            int i = 2;
+            string rv = "";
 
+            while (i < Number)
+            {
+                if (Number % i == 0)
+                {
+                    int n = 2;
+                    int flag = 0;
+                    while (n < i)
+                    {
+                        if (i % n == 0)
+                        {
+                            flag = 1;
+                            break;
+                        }
+                        else
+                        {
+                            flag = 0;
+                        }
+                        n++;
+                    }
+                    if (flag == 0)
+                    {
+                        rv = $"{Convert.ToString(i)} {rv}";
+                    }
+                }
+                i++;
+            }
+            return rv;
         }
     }
 }
