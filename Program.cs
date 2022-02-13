@@ -10,42 +10,27 @@ namespace Basic
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to the solutions of basic MATHEMATICAL PROBLEM STATEMENTS");
-            //TO GET THE RANGE OF PRIME NUMBER !
-            Console.Write("Enter a number to find prime number range: ");
-            int primeNumberRange = Convert.ToInt32(Console.ReadLine());
+            //CONSTANTS
+            const int NUMBEROFDIEROLL = 40;
 
-            Console.WriteLine(primeNoRange(primeNumberRange));
-        }
-        public static string primeNoRange(int Number)
-        {
-            int i = 2;
-            string primeNumber = "";
-            int flag = 0;
-            while (i < Number)
+            //VARIABLES
+            int dieRoll = 1;
+
+            IDictionary<int,int> valuesOfDie = new Dictionary<int,int>();
+            while (dieRoll <= NUMBEROFDIEROLL)
             {
-                int n = 2;
-                while (n < i)
-                {
-                    if (i % n == 0)
-                    {
-                        flag = 1;
-                        break;
-                    }
-                    else
-                    {
-                        flag = 0;
-                    }
-                    n++;
-                }
-                if (flag == 0)
-                {
-                    primeNumber = primeNumber + " " + Convert.ToString(i);
-                }
-                i++;
+                //VARIABLES
+                Random random = new Random();
+                int dieNumber = random.Next(1, 7);
+                valuesOfDie[dieRoll] = dieNumber;
+                //Console.WriteLine($"The die number is {dieNumber}");
+            dieRoll++;
             }
-
-            return primeNumber;
+            foreach (KeyValuePair<int,int> entry in valuesOfDie)
+            {
+                Console.WriteLine(entry.Key +" : " +entry.Value);
+            }
         }
+
     }
 }
